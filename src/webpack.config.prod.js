@@ -43,7 +43,7 @@ webpackConfig.plugins = [
 	new webpack.optimize.CommonsChunkPlugin({
 		name:"runtime"
 	})
-]
+];
 
 webpackConfig.devtool = "#cheap-module-eval-source-map";
 webpackConfig.devServer = {
