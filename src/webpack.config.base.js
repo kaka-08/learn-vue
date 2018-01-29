@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpackConfig = {
     entry: path.resolve(__dirname,"index.js"),
     output:{
-        filename:"bundle.js",
+        filename:"bundle.[hash:8].js",
         path:path.resolve(__dirname,'bin')    //  path.resolve  绝对路径  path.join 相对路径 
     },
     module:{
@@ -29,28 +29,6 @@ const webpackConfig = {
                 test: /\.jsx$/, 
                 use:  'babel-loader' 
              },
-             {
-                test: /\.less$/,
-                use: [
-                    { loader: 'style-loader' },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 1
-                        }
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                          sourceMap: true,
-                          config: {
-                            path: 'src/postcss.config.js'  // 这个得在项目根目录创建此文件
-                          }
-                        }
-                      },
-                    { loader: 'less-loader' }                    
-                ]
-              },
             {   
                 test: /\.jpeg|png|gif|jpg|svg/,
                 use: [
@@ -58,7 +36,7 @@ const webpackConfig = {
                       loader: 'url-loader',
                       options:{
                          limit:1024,
-                         name:'[name]-[hash:8].[ext]'
+                         name:'[name]-aaa.[ext]'
                       }
                     }
                 ]
