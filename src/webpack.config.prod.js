@@ -2,35 +2,15 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractPlugin = require("extract-text-webpack-plugin"); 
+const webpackConfig = require("./webpack.config.base");
 
+webpackConfig.entry = {
+	app:path.resolve(__dirname,"index.js"),
+	vendor:["vue"]   //数组可以扩展，按照模块打包
+};
+webpackConfig.output.filename = "[name].[chunkhash:8].js";
 
- // const isDev = process.env.NODE_ENV === "development";
-
-const webpackConfig = {
-    entry: path.resolve(__dirname,"index.js"),
-    output:{
-        filename:"bundle.[hash:8].js",
-        path:path.resolve(__dirname,'bin')    //  path.resolve  绝对路径  path.join 相对路径 
-    },
-    module:{
-        rules:[
-            { test: /\.vue$/, use: 'vue-loader' },
-            { 
-                test: /\.css$/, 
-                use: [
-                    { loader: 'style-loader' },
-                    { loader: 'css-loader',
-                     options: {
-                        modules: true
-                      } 
-                    }
-                ] 
-             },
-             { 
-                test: /\.jsx$/, 
-                use:  'babel-loader' 
-             },
-             {
+webpackConfig.module.rules.push({
                 test: /\.less$/,
                 use: ExtractPlugin.extract({
                     fallback:'style-loader',
@@ -53,37 +33,27 @@ const webpackConfig = {
                         { loader: 'less-loader' }                    
                     ]
                 })   
-              },
-            {   
-                test: /\.jpeg|png|gif|jpg|svg/,
-                use: [
-                    { 
-                      loader: 'url-loader',
-                      options:{
-                         limit:1024,
-                         name:'[name].[ext]'
-                      }
-                    }
-                ]
-            }
-        ]
-    },
-    plugins:[
-        /*new webpack.DefinePlugin({
-            "process-env":{
-                NODE_ENV : isDev ? "'development'" : "'production'"
-            }
-        }),*/
-        new HtmlWebpackPlugin({template: './src/index.html'}),  //加载应用html模板 
-        new webpack.HotModuleReplacementPlugin()  //启动热加载   此时 devServer的hot为true        
-    ],
-    resolve:{
-        extensions:['.vue','.js','.css','jsx','.less'] //自动补全识别后缀
-    }
-}
+              });
+webpackConfig.plugins = [
+    new HtmlWebpackPlugin({template: './src/index.html'}),  //加载应用html模板 
+	new ExtractPlugin('styles.[chunkhash:8].css'),
+	new webpack.optimize.CommonsChunkPlugin({
+		name:"vendor"
+	}),
+	new webpack.optimize.CommonsChunkPlugin({
+		name:"runtime"
+	})
+];
 
-webpackConfig.plugins.push(
-    new ExtractPlugin('styles.[chunkhash:8].css')
-)
+webpackConfig.devtool = "#cheap-module-eval-source-map";
+webpackConfig.devServer = {
+    port:"8081",
+    host:"0.0.0.0",
+    overlay:{
+        errors:true   //在编译的时候 有错误，则显示到控制台
+    },
+    hot:true,
+    inline:true
+};
 
 module.exports = webpackConfig;

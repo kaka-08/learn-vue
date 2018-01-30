@@ -4,6 +4,7 @@ const webpack = require("webpack");
 //  process.env.NODE_ENV === "development"  环境为开发环境 
 
 webpackConfig.target = "web";
+
 webpackConfig.module.rules.push(
     {
         test: /\.less$/,
