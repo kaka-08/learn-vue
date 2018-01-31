@@ -4,12 +4,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 
  // const isDev = process.env.NODE_ENV === "development";
+const root = process.cwd();    // 取项目的根目录     __dirname 是取当前文件所在的目录
 
 const webpackConfig = {
-    entry: path.resolve(__dirname,"index.js"),
+    entry: path.resolve(root,"src/index.js"),
     output:{
         filename:"bundle.[hash:8].js",
-        path:path.resolve(__dirname,'bin')    //  path.resolve  绝对路径  path.join 相对路径 
+        path:path.resolve(root,'bin')    //  path.resolve  绝对路径  path.join 相对路径 
     },
     module:{
         rules:[
@@ -49,7 +50,7 @@ const webpackConfig = {
                 NODE_ENV : isDev ? "'development'" : "'production'"
             }
         }),*/
-        new HtmlWebpackPlugin({template: './src/index.html'}),  //加载应用html模板 
+        new HtmlWebpackPlugin({template: 'src/index.html'}),  //加载应用html模板 
         new webpack.HotModuleReplacementPlugin()  //启动热加载   此时 devServer的hot为true        
     ],
     resolve:{

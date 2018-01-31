@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"build:dev": "cross-env NODE_ENV=development webpack --config src/webpack.config.dev.js",
-    "build:prod": "cross-env NODE_ENV=production webpack --config src/webpack.config.prod.js",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config src/webpack.config.dev.js",
-	"prod": "cross-env NODE_ENV=production webpack-dev-server --config src/webpack.config.prod.js"
+    "build:dev": "cross-env NODE_ENV=development webpack --config src/webpack/webpack.config.dev.js",
+    "build:prod": "cross-env NODE_ENV=production webpack --config src/webpack/webpack.config.prod.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config src/webpack/webpack.config.dev.js",
+    "prod": "cross-env NODE_ENV=production webpack-dev-server --config src/webpack/webpack.config.prod.js"
   },
   "author": "",
   "license": "ISC",

@@ -4,8 +4,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractPlugin = require("extract-text-webpack-plugin"); 
 const webpackConfig = require("./webpack.config.base");
 
+const root = process.cwd();    // 取项目的根目录     __dirname 是取当前文件所在的目录
+
 webpackConfig.entry = {
-	app:path.resolve(__dirname,"index.js"),
+	app:path.resolve(root,"src/index.js"),
 	vendor:["vue"]   //数组可以扩展，按照模块打包
 };
 webpackConfig.output.filename = "[name].[chunkhash:8].js";
@@ -26,7 +28,7 @@ webpackConfig.module.rules.push({
                             options: {
                               sourceMap: true,
                               config: {
-                                path: 'src/postcss.config.js'  // 这个得在项目根目录创建此文件
+                                path: 'src/webpack/postcss.config.js'  // 这个得在项目根目录创建此文件
                               }
                             }
                           },
@@ -35,7 +37,7 @@ webpackConfig.module.rules.push({
                 })   
               });
 webpackConfig.plugins = [
-    new HtmlWebpackPlugin({template: './src/index.html'}),  //加载应用html模板 
+    new HtmlWebpackPlugin({template: 'src/index.html'}),  //加载应用html模板 
 	new ExtractPlugin('styles.[chunkhash:8].css'),
 	new webpack.optimize.CommonsChunkPlugin({
 		name:"vendor"

@@ -1,5 +1,5 @@
 
-import  "./styles/footer.less";
+import  "../styles/footer.less";
 export default {
     data(){
         return{

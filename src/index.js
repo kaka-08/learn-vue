@@ -1,5 +1,5 @@
 import Vue from "vue";
-import App from "./app.vue";
+import App from "./components/app.vue";
 import "./styles/global.less";
 
 const root = document.getElementById("root");

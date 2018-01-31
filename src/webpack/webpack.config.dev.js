@@ -21,7 +21,7 @@ webpackConfig.module.rules.push(
                 options: {
                   sourceMap: true,
                   config: {
-                    path: 'src/postcss.config.js'  // 这个得在项目根目录创建此文件
+                    path: 'src/webpack/postcss.config.js'  // 这个得在项目根目录创建此文件
                   }
                 }
               },
