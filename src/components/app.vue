@@ -1,44 +1,33 @@
 <template>
   <div id="app">
-       <div id="cover"></div>
-        <Header />
-        <Todo />         
-        <Footer />
+    <header>
+      <h1>Hello Vuex</h1>
+      <p>FIRST NAME:{{ firstName }},LAST NAME:{{LastName}},FULL NAME:{{fullName}},AGE {{ count }}</p>
+    </header>
+    <UserList />
   </div>
-   
 </template>
 
-
 <script>
-import Header from "./head.vue";
-import Footer from "./footer.jsx";
-import Tabs from "./tabs.vue";
-import Todo from "./todo.vue";
-
+import { mapState } from 'vuex';
+import UserList from './UserList';
 export default {
-    components:{
-     Header,Footer,Tabs,Todo
+  data(){
+    return{
+      firstName:"Zhang Weijie"
+    }
+  },
+   computed:mapState({
+    count :state=> state.count,
+    // 为了能够使用 `this` 获取局部状态，必须使用常规函数
+    // 传字符串参数 'count' 等同于 `state => state.count`
+    LastName: 'lastName',
+    fullName(state){
+      return this.firstName +" . "+ state.lastName
+    }
+  }),
+  components: {
+    UserList
     }
 }
 </script>
-
-<style lang="less" scoped>
-#app {
-  position: absolute;
-  top:0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  #cover { 
-  position: absolute;
-  top:0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #999;
-  opacity: .5;
-  z-index: -1}
-}
-
-</style>
-
