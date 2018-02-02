@@ -5,7 +5,7 @@ import store from "./store/index";
 import iView from 'iview';
 import { Button, Table } from 'iview';
 import router from './router';
-import './vendor/iview/dist/styles/iview.css';
+import './assets/styles/index.less';
 
 Vue.component('Button', Button);
 Vue.component('Table', Table);

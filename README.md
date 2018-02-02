@@ -20,6 +20,10 @@ npm i 或者 npm install
 
 生产环境编译 npm run build:prod
 
+## 注意 webpack 打包静态资源的注意点 
+
+https://www.cnblogs.com/huangqiao/p/7798887.html
+
 
 ##感激
 * [vue](https://cn.vuejs.org/v2/guide/) 
