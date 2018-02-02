@@ -2,32 +2,28 @@
   <div id="app">
     <header>
       <h1>Hello Vuex</h1>
-      <p>FIRST NAME:{{ firstName }},LAST NAME:{{LastName}},FULL NAME:{{fullName}},AGE {{ count }}</p>
+      <router-link to="testStores">Store的配置结果</router-link>      
+      <router-link to="testModuleA">测试模块</router-link>
+      <router-link to="testIview">测试iview-ui</router-link>
     </header>
-    <UserList />
+    <section>
+      <!-- 对应的组件内容渲染到router-view中 -->
+      <router-view></router-view>
+    </section>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
-import UserList from './UserList';
 export default {
   data(){
     return{
-      firstName:"Zhang Weijie"
     }
   },
-   computed:mapState({
-    count :state=> state.count,
-    // 为了能够使用 `this` 获取局部状态，必须使用常规函数
-    // 传字符串参数 'count' 等同于 `state => state.count`
-    LastName: 'lastName',
-    fullName(state){
-      return this.firstName +" . "+ state.lastName
-    }
-  }),
+  computed:{
+  },
+  methods:{
+  },
   components: {
-    UserList
-    }
+  }
 }
 </script>

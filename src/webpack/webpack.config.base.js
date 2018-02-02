@@ -14,14 +14,30 @@ const webpackConfig = {
     },
     module:{
         rules:[
-            { test: /\.vue$/, use: 'vue-loader' },
+            {
+                test: /\.vue$/,
+                use: [
+                    {
+                        loader: 'vue-loader',
+                        options: {
+                            
+                        }
+                    },
+                    {
+                        loader: 'iview-loader',
+                        options: {
+                            prefix: false
+                        }
+                    }
+                ]
+            },
             { 
                 test: /\.css$/, 
                 use: [
                     { loader: 'style-loader' },
                     { loader: 'css-loader',
                      options: {
-                        modules: true
+                        modules: false,   //默认 false
                       } 
                     }
                 ] 
@@ -31,7 +47,7 @@ const webpackConfig = {
                 use:  'babel-loader' 
              },
             {   
-                test: /\.jpeg|png|gif|jpg|svg/,
+                test: /\.jpeg|png|gif|jpg|svg/,  
                 use: [
                     { 
                       loader: 'url-loader',
@@ -41,7 +57,8 @@ const webpackConfig = {
                       }
                     }
                 ]
-            }
+            },
+            { test: /\.(eot|svg|ttf|woff|woff2)\w*/, use: "file-loader" }
         ]
     },
     plugins:[

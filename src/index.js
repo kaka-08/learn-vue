@@ -1,10 +1,21 @@
 import Vue from "vue";
+import VueRouter from 'vue-router';
 import App from "./components/App.vue";
 import store from "./store/index";
+import iView from 'iview';
+import { Button, Table } from 'iview';
+import router from './router';
+import './vendor/iview/dist/styles/iview.css';
+
+Vue.component('Button', Button);
+Vue.component('Table', Table);
+Vue.use(iView);
+
 
 const root = document.getElementById("root");
 
 new Vue({
+    router,
     store,
     render:(h) => h(App)
 }).$mount(root)

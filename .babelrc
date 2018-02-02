@@ -2,7 +2,11 @@
     "presets": [
         "env","stage-0"
     ],
-    "plugins": [
-        "transform-vue-jsx"
-    ]
+    "plugins": ["transform-vue-jsx",  ["import", {  //按需加载组件，减少文件体积
+        "libraryName": "iview",
+        "libraryDirectory": "src/components"
+      }]]
 }
+
+
+    
