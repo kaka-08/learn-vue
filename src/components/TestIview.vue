@@ -61,6 +61,7 @@
                         <Content :style="{padding: '24px', minHeight: '450px', background: '#fff'}">
                              <Weathers />
                              <TestTable />
+                             <router-link to="/">点此跳转到测试module页面</router-link>
                         </Content>
                     </Layout>
                 </Content>

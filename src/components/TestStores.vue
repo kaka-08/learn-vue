@@ -1,6 +1,7 @@
 <template>
     <section>
       <button @click="changeStoreNameForKaka">修改store name 为 kaka</button>
+      <p>{{storeName}}</p>
       <p>所有用户</p>
       <p>mapState方法映射所有的用户</p>
       <ul>
@@ -47,13 +48,9 @@ export default {
    ...mapActions({
       changeStoreCountByAction: 'incrementStoreCountAction', //  将 `this.changeStoreCountByAction()` 映射为 `this.$store.dispatch('incrementStoreCountAction')`
       do2Action: 'do2Action', //  将 `this.do2Action()` 映射为 `this.$store.dispatch('do2Action')`
+      changeStoreNameForKaka:'changeStoreNameAction'
     }),
-    changeStoreNameForKaka(){
-        const payload = {
-          "newName":"kaka"
-        };
-        this.$store.dispatch('changeStoreNameAction',payload) 
-      }
+   
   },
   components: {
   }

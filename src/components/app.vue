@@ -1,11 +1,8 @@
 <template>
    <div id="app">
-       <transition name="fade"
-                mode="out-in">
-                   <router-view></router-view>
-                  <p @click="toRoutesVue">测试路由，跳转到路由的切换页面</p>        
-                
-    </transition>
+        <transition name="fade" mode="out-in">
+           <router-view></router-view>                     
+        </transition>
    </div>      
 </template>
 
@@ -17,11 +14,6 @@ export default {
     }
   },
   computed:{
-  },
-  methods:{
-      toRoutesVue(){
-          this.$router.push({ path: 'testIview' })
-      }
   },
   components: {
   }

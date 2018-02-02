@@ -3,8 +3,9 @@
          <h3>其实我很好奇store的modules如何使用，来测试一下</h3>
          <p>{{name}}</p>
          <button @click="incrementModule" >增长模块A的count</button>
-          <p></p>
-         <span>{{count}}</span>       
+         <span>{{count}}</span><br />
+         <router-link to="testStores">跳转到测试store页面</router-link> 
+         <router-link to="testIview">跳转到测试vue的ui组件页面，包含axios</router-link> 
      </section>
 </template>
 

@@ -11,7 +11,7 @@ Vue.use(VueRouter);
 
 const routes = [
     { path: '/index', component: App },
-    { path: '/testModuleA', component: TestModuleA },
+    { path: '/', component: TestModuleA },
     { path: '/testStores', component: TestStores },
     { path: '/testIview', component: TestIview }
 ];
