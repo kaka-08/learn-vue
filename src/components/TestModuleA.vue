@@ -5,7 +5,7 @@
          <button @click="incrementModule" >增长模块A的count</button>
          <span>{{count}}</span><br />
          <router-link to="testStores">跳转到测试store页面</router-link> 
-         <router-link to="testIview">跳转到测试vue的ui组件页面，包含axios</router-link> 
+         <router-link to="testIview/kaka">跳转到测试vue的ui组件页面，包含axios</router-link> 
      </section>
 </template>
 

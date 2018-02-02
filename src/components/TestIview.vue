@@ -59,9 +59,13 @@
                             </Menu>
                         </Sider>
                         <Content :style="{padding: '24px', minHeight: '450px', background: '#fff'}">
+                            <h1>{{id}}</h1>
                              <Weathers />
                              <TestTable />
                              <router-link to="/">点此跳转到测试module页面</router-link>
+                             <router-link to="/sonA">子路由A</router-link>
+                             <router-link to="/sonB">子路由B</router-link>
+                             <router-view></router-view>
                         </Content>
                     </Layout>
                 </Content>
@@ -77,6 +81,13 @@ import TestTable from './TestTable.vue';
 export default {
   data(){
     return{
+        id:null
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      // 对路由变化作出响应...
+      this.id = to.params.id
     }
   },
   computed:{
