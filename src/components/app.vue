@@ -59,22 +59,8 @@
                             </Menu>
                         </Sider>
                         <Content :style="{padding: '24px', minHeight: '450px', background: '#fff'}">
-                            <Circle
-                                :size="250"
-                                :trail-width="4"
-                                :stroke-width="5"
-                                :percent="75"
-                                stroke-linecap="square"
-                                stroke-color="#43a3fb">
-                                <div class="demo-Circle-custom">
-                                    <h1>42,001,776</h1>
-                                    <p>消费人群规模</p>
-                                    <span>
-                                        总占人数
-                                        <i>75%</i>
-                                    </span>
-                                </div>
-                            </Circle>
+                             <Weathers />
+                             <TestTable />
                         </Content>
                     </Layout>
                 </Content>
@@ -85,6 +71,8 @@
 </template>
 
 <script>
+import Weathers from './Weather.vue';
+import TestTable from './TestTable.vue';
 export default {
   data(){
     return{
@@ -95,6 +83,7 @@ export default {
   methods:{
   },
   components: {
+      Weathers,TestTable
   }
 }
 </script>
@@ -104,8 +93,8 @@ export default {
 
 <style lang="less" scoped>
   .layout{
-    border: 1px solid #769fce;
-    background: #5a8cbe;
+    border: 1px solid #041433;
+    background: #041433;
     position: relative;
     border-radius: 4px;
     overflow: hidden;
