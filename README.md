@@ -12,10 +12,12 @@ npm i 或者 npm install
 
 ## 项目的启动方式 
 开发模式   npm run dev     访问路径: http://localhost:8080
+
 生产模式   npm run prod    访问路径: http://localhost:8081
 
 ## 编译命令 
 开发环境编译 npm run build:dev
+
 生产环境编译 npm run build:prod
 
 
