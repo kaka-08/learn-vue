@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import { get } from '../common/axios';
 export default {
   data(){
     return{
@@ -25,8 +24,12 @@ export default {
   },
   mounted:function(){ //created方法，页面初始调用   
   this.$nextTick(function () {
-        var url = "./assets/data/testWeather.json";
-        get(url).then(res=>{
+        var url = "weather/json.shtml?city=北京";
+        this.$http({
+            method: 'get',
+            url: url,
+            data: null
+        }).then(res=>{
             this.message = res.data.result.warning || "今天天气很好，愿您开心!";
             this.weathers = res.data.result.forecast
         },

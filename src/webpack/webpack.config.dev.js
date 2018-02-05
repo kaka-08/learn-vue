@@ -31,7 +31,7 @@ webpackConfig.module.rules.push(
 );
 webpackConfig.devtool = "#cheap-module-eval-source-map";
 webpackConfig.devServer = {
-    port:"8080",
+    port:"8088",
     host:"0.0.0.0",
     overlay:{
         errors:true   //在编译的时候 有错误，则显示到控制台

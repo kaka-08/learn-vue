@@ -6,14 +6,14 @@ import TestStores from "./components/TestStores.vue";
 import TestIview from "./components/TestIview.vue";
 import SonA from "./components/SonA.vue";
 import SonB from "./components/SonB.vue";
-
-
+import Login from "./components/user/login.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
+    { path: '/', component: Login },
     { path: '/index', component: App },
-    { path: '/', component: TestModuleA },
+    { path: '/TestModuleA', component: TestModuleA },
     { path: '/testStores', component: TestStores },
     { path: '/testIview/:id', component: TestIview,
         children: [

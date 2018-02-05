@@ -3,14 +3,14 @@ import VueRouter from 'vue-router';
 import App from "./components/App.vue";
 import store from "./store/index";
 import iView from 'iview';
-import { Button, Table } from 'iview';
 import router from './router';
+import axios_instance from './common/axios';
 import './assets/styles/index.less';
 
-Vue.component('Button', Button);
-Vue.component('Table', Table);
-Vue.use(iView);
 
+Vue.use(iView);
+Vue.prototype.$http = axios_instance;
+  
 
 const root = document.getElementById("root");
 
