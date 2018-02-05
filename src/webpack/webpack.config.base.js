@@ -78,7 +78,12 @@ const webpackConfig = {
         new webpack.HotModuleReplacementPlugin()  //启动热加载   此时 devServer的hot为true        
     ],
     resolve:{
-        extensions:['.vue','.js','.css','jsx','.less'] //自动补全识别后缀
+        modules: ['src','node_modules'],    //直接访问绝对路径，，，和 alias有一样指出，后有alias先有modules
+        extensions:['.vue','.js','.css','jsx','.less'], //自动补全识别后缀 
+        alias: {
+            '@': path.resolve(root, 'src'),
+            'url': path.resolve('src/assets/images')
+          }
     }
 }
 

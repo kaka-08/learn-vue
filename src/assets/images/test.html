@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<style>
+    #div1{ width:100px; height:30px; background:#CC6; font-size:14px;}
+	#div2{ width:100px; height:100px; background:#999; display:none} 
+</style>
+<script type="text/javascript">
+   window.onload = function(){
+    var timer;
+	var oD1 = document.getElementById("div1");
+	var oD2 = document.getElementById("div2");
+	var result = oD1.onmouseover && oD2.onmouseover;
+	var result01 = oD1.onmouseover || oD2.onmouseover;
+    oD1.onmouseover=function(){
+        oD2.style.display="block";
+		this.style.fontSize = "18px";
+		alert(result+", "+result01)
+    };
+    oD1.onmouseout=function(){
+        timer=setTimeout(function(){oD2.style.display="none";oD1.style.fontSize = "14px";},500);
+		alert(result+", "+result01)
+    };
+    oD2.onmouseover=function(){
+        clearTimeout(timer);
+        this.style.display="block";
+		alert(result+", "+result01)
+    };
+    oD2.onmouseout=function(){
+        this.style.display="none";
+		alert(result+", "+result01)
+    }
+}
+
+</script>
+<div id="div1">123</div>
+<div id="div2"></div>
+</body>
+</html>

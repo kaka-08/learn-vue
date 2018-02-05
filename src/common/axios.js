@@ -1,17 +1,13 @@
+/**
+ * create by zwj 2018/2/5
+ */
+
 import axios from 'axios';
-import { stringify } from './utils';
 import qs from 'querystring';
 
+
 // 初始化 axios 实例
-var axios_instance = axios.create({
-  method: 'post',
-  headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8','Access-Control-Allow-Origin':"*"},
-  baseURL : 'http://localhost:8080/',
-  transformRequest: [function (data, headers) {   
-    // Do whatever you want to transform the data
-    return data;
-  }]
-})
+var axios_instance = axios.create();
 
 // Add a request interceptor
 axios_instance.interceptors.request.use(function (config) {
@@ -39,6 +35,10 @@ axios_instance.interceptors.response.use(res=> {
   return Promise.reject(error)
 });
 
+
+axios_instance.defaults.timeout = 5000;
+axios_instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+axios_instance.defaults.baseURL = 'http://localhost:8080/';
 
 export default axios_instance;
 

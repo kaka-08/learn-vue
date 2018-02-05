@@ -1,16 +1,20 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import App from "./components/App.vue";
-import TestModuleA from "./components/TestModuleA.vue";
-import TestStores from "./components/TestStores.vue";
-import TestIview from "./components/TestIview.vue";
-import SonA from "./components/SonA.vue";
-import SonB from "./components/SonB.vue";
-import Login from "./components/user/login.vue";
+import App from "components/App.vue";
+import TestModuleA from "components/TestModuleA.vue";
+import TestStores from "components/TestStores.vue";
+import TestIview from "components/TestIview.vue";
+import Weather from "components/Weather.vue";
+import SonA from "components/SonA.vue";
+import SonB from "components/SonB.vue";
+import Login from "components/user/login.vue";
+import Home from "components/home/index.vue";
+
 
 Vue.use(VueRouter);
 
 const routes = [
+    { path: '/home', component: Home },
     { path: '/', component: Login },
     { path: '/index', component: App },
     { path: '/TestModuleA', component: TestModuleA },
@@ -28,11 +32,16 @@ const routes = [
             // SonB 会被渲染在 TestIview 的 <router-view> 中
             path: '/sonB',
             component: SonB
+            },
+            {
+                // 当 /testIview/:id/weather 匹配成功，
+               // weather 会被渲染在 TestIview 的 <router-view> 中
+               path: '/weather',
+               component: Weather
             }
         ] 
     }
 
-    
     
 ];
 

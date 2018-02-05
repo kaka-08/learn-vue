@@ -1,5 +1,6 @@
+import $http from 'common/axios';
+
+
 export function loginService(params){
-    debugger;
-    console.log(this)
-   return this.$http.post('user/login.do',params)
+   return $http.post('user/login.do',params)
 }

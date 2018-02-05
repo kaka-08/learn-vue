@@ -4,12 +4,14 @@ import App from "./components/App.vue";
 import store from "./store/index";
 import iView from 'iview';
 import router from './router';
-import axios_instance from './common/axios';
+import axios_instance from 'common/axios';
+import axios from 'axios';
 import './assets/styles/index.less';
 
 
 Vue.use(iView);
-Vue.prototype.$http = axios_instance;
+Vue.prototype.$fdtHttp = axios_instance;
+Vue.prototype.$axiosHttp = axios;
   
 
 const root = document.getElementById("root");

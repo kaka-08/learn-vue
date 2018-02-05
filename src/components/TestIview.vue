@@ -60,11 +60,11 @@
                         </Sider>
                         <Content :style="{padding: '24px', minHeight: '450px', background: '#fff'}">
                             <h1>{{id}}</h1>
-                             <Weathers />
                              <TestTable />
                              <router-link to="/">点此跳转到测试module页面</router-link>
                              <router-link to="/sonA">子路由A</router-link>
                              <router-link to="/sonB">子路由B</router-link>
+                             <router-link to="/weather">天气</router-link>
                              <router-view></router-view>
                         </Content>
                     </Layout>
@@ -76,7 +76,6 @@
 </template>
 
 <script>
-import Weathers from './Weather.vue';
 import TestTable from './TestTable.vue';
 export default {
   data(){
@@ -93,7 +92,7 @@ export default {
   computed:{
   },
   components: {
-      Weathers,TestTable
+      TestTable
   }
 }
 </script>

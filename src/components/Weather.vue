@@ -6,8 +6,8 @@
                 <p>日期 {{weather.date}}</p>
                 <p>高温 {{weather.high}}</p>
                 <p>低温 {{weather.low}}</p>
-                <p>风力 {{weather.fengli}}</p>
-                <p>风向 {{weather.fengxiang}}</p>
+                <p>风力 {{weather.fl}}</p>
+                <p>风向 {{weather.fx}}</p>
                 <p>天气状况 {{weather.type}}</p>
             </li>     
         </ul>
@@ -24,17 +24,12 @@ export default {
   },
   mounted:function(){ //created方法，页面初始调用   
   this.$nextTick(function () {
-        var url = "weather/json.shtml?city=北京";
-        this.$http({
-            method: 'get',
-            url: url,
-            data: null
-        }).then(res=>{
-            this.message = res.data.result.warning || "今天天气很好，愿您开心!";
-            this.weathers = res.data.result.forecast
+        var url = "src/assets/data/testWeather.json";
+        this.$axiosHttp.get(url).then(res=>{
+            this.message = res.data.data.ganmao || "今天天气很好，愿您开心!";
+            this.weathers = res.data.data.forecast
         },
         res=>{
-
         })
       })   
   },

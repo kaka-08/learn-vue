@@ -46,7 +46,7 @@ import { loginService } from './service'
                             res=>{
                                 _this.$Message.success(res.msg);                                                                        
                                 setTimeout(function(){
-                                    _this.$router.push({path:'TestModuleA', replace: true})
+                                    _this.$router.push({path:'home', replace: true})
                                 },500);                                         
                             },
                             res=>{ 
