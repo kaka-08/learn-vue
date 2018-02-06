@@ -38,7 +38,7 @@ axios_instance.interceptors.response.use(res=> {
 
 axios_instance.defaults.timeout = 5000;
 axios_instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
-axios_instance.defaults.baseURL = 'http://localhost:8080/';
+axios_instance.defaults.headers.get['Content-Type'] = 'application/json;;charset=UTF-8';
 
 export default axios_instance;
 

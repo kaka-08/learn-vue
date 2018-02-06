@@ -37,7 +37,11 @@ webpackConfig.devServer = {
         errors:true   //在编译的时候 有错误，则显示到控制台
     },
     hot:true,
-    inline:true
+    inline:true,
+    proxy: [{
+        context: ["/user", "/api","/manage"],
+        target: "http://localhost:8080",
+      }]
 };
 
 webpackConfig.plugins.push(

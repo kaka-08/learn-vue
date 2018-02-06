@@ -1,8 +1,10 @@
 <template>
    <div>
     <Header/>
-    <section class="w1224"> 
-       <Weather />
+    <section> 
+       <Index />
+       <Banner />
+       <Products />
     </section>  
     <Footer/>
    </div>  
@@ -12,6 +14,9 @@
 import Header from 'components/header/index.vue';
 import Footer from 'components/footer/index.vue';
 import Weather from 'components/Weather';
+import Products from 'components/products/Products';
+import Index from 'components/index/webIndex';
+import Banner from 'components/banner/Banner';
 
 export default {
   data(){
@@ -21,7 +26,7 @@ export default {
   computed:{
   },
   components: {
-    Header,Footer,Weather
+    Header,Footer,Products,Index,Banner
   }
 }
 </script>

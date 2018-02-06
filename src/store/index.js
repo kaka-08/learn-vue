@@ -7,7 +7,10 @@ import mutations from './mutations';
 
 Vue.use(Vuex);
 
- 
+Vue.filter('moneyFormat', function (value) {
+  return '￥' +value.toFixed(2)
+})
+
 const store = new Vuex.Store({
   strict: process.env.NODE_ENV !== 'production',
   state: {
@@ -17,8 +20,9 @@ const store = new Vuex.Store({
        {id:3,name:"Zhang weijie",idol:false,isMe:true}
      ],
      storeCount:100,
-     storeName:"store name"
+     storeName:"store name",
   },
+ 
   // 有时候我们需要从 store 中的 state 中派生出一些状态 ，即筛选一些 state里面的数据
   getters: {
       getIdols(state){

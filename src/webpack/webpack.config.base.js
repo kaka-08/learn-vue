@@ -75,14 +75,18 @@ const webpackConfig = {
         //     from: root + '/src/assets'
         // }]),
         new HtmlWebpackPlugin({template: 'src/index.html'}),  //加载应用html模板 
-        new webpack.HotModuleReplacementPlugin()  //启动热加载   此时 devServer的hot为true        
+        new webpack.HotModuleReplacementPlugin(),  //启动热加载   此时 devServer的hot为true 
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }) 
     ],
     resolve:{
         modules: ['src','node_modules'],    //直接访问绝对路径，，，和 alias有一样指出，后有alias先有modules
         extensions:['.vue','.js','.css','jsx','.less'], //自动补全识别后缀 
         alias: {
             '@': path.resolve(root, 'src'),
-            'url': path.resolve('src/assets/images')
+            'jquery': 'jquery' 
           }
     }
 }
