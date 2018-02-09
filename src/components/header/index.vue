@@ -22,9 +22,9 @@
         <ul>
           <!--<li><a href="#">欢迎您，请登录！</a></li>
           <li><a href="#">注册</a></li>-->
-          <li class="liSpan"><a href="#">飞奔的奥斯卡</a><span></span>
+          <li class="liSpan"><a href="#">{{usermsg.username}}</a><span></span>
           </li>
-         <li class="liSpan"><a href="#">积分<b>47700</b></a><span></span>
+         <li class="liSpan"><a href="#">积分<b>1000</b></a><span></span>
           </li>
           <li class="liSpan"><a href="#">消息<b>5</b></a><span></span>
           </li>
@@ -64,7 +64,17 @@
 
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
+  data(){
+    return{
+    }
+  },
+  computed: {
+    usermsg () {
+      return this.$store.state.usermsg
+    }
+  }
     
 }
 </script>

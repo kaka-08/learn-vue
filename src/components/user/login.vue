@@ -19,7 +19,8 @@
    
 </template>
 <script>
-import { loginService } from './service'
+import { loginService } from './service';
+import { mapGetters, mapActions } from 'vuex';
     export default {
         data () {
             return {
@@ -38,29 +39,33 @@ import { loginService } from './service'
                 }
             }
         },
-        methods: {
-            handleSubmit(name) {
-                var _this = this;
-                var params = _this.formInline;
-                _this.$refs[name].validate((valid) => {
-                    if (valid) {
-                        //调用login的axios todo
-                        loginService(params).then(
-                            res=>{
-                                _this.$Message.success(res.msg);                                                                        
-                                setTimeout(function(){
-                                    _this.$router.push({path:'home', replace: true})
-                                },500);                                         
-                            },
-                            res=>{ 
-                                _this.$Message.error(res.msg);                                 
+        methods:{ 
+            ...mapActions({
+                getUserMsg: 'userLoginAction' // 将 `this.getUserMsg()` 映射为 `this.$store.dispatch('userLoginAction')`
+            }),
+        handleSubmit(name) {
+            var _this = this;
+            var params = _this.formInline;
+             _this.$refs[name].validate((valid) => {
+                if (valid) {
+                    //调用login的axios todo
+                    loginService(params).then(
+                        res=>{
+                            _this.$Message.success(res.msg); 
+                            _this.getUserMsg(res.data);                                                                       
+                            setTimeout(function(){
+                                _this.$router.push({path:'home', replace: true})
+                            },500);                                         
+                        },
+                        res=>{ 
+                             _this.$Message.error(res.msg);                                 
                             })
-                    } else {
-                        _this.$Message.error('输入参数有误，请检查书写是否正确!');
+                } else {
+                     _this.$Message.error('输入参数有误，请检查书写是否正确!');
                     }
                 })
             }
-        }
+        }            
     }
 </script>
 

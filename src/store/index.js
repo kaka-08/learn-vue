@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import moduleA from './modules/moduleA/index';
+import categoryModule from './modules/categoryModule/index';
+import userModule from './modules/userModule/index';
 import * as types from './mutation-types';
 import * as actions from './actions';
 import mutations from './mutations';
@@ -21,13 +23,16 @@ const store = new Vuex.Store({
      ],
      storeCount:100,
      storeName:"store name",
+     usermsg:{
+       username:""
+     }
   },
  
   // 有时候我们需要从 store 中的 state 中派生出一些状态 ，即筛选一些 state里面的数据
   getters: {
       getIdols(state){
         return state.users.filter(user=>user.idol)
-      },
+      },  
       getIsMe(state){
         return state.users.filter(user=>user.isMe)[0]
       },
@@ -44,7 +49,9 @@ const store = new Vuex.Store({
   // actions  调   mutations
   actions,
   modules: {
-    moduleA
+    moduleA,
+    categoryModule,
+    userModule
   }
 });
 
